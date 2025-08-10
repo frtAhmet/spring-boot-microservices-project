@@ -1,0 +1,16 @@
+insert into products(code, name, description, image_url, price) values
+('book-11', 'Cracking the Coding Interview', '189 programming questions and solutions.', 'https://example.com/images/cracking-coding-interview.jpg', 38.00),
+('book-12', 'Introduction to Algorithms', 'Comprehensive textbook on algorithms.', 'https://example.com/images/intro-to-algorithms.jpg', 70.00),
+('book-13', 'You Don’t Know JS', 'Deep dive into JavaScript.', 'https://example.com/images/you-dont-know-js.jpg', 30.00),
+('book-14', 'JavaScript: The Good Parts', 'Unearthing the best features of JavaScript.', 'https://example.com/images/js-good-parts.jpg', 28.00),
+('book-15', 'The Mythical Man-Month', 'Essays on software engineering management.', 'https://example.com/images/mythical-man-month.jpg', 34.00),
+('book-16', 'Programming Pearls', 'Techniques for programming excellence.', 'https://example.com/images/programming-pearls.jpg', 33.00),
+('book-17', 'Effective Python', '59 specific ways to write better Python.', 'https://example.com/images/effective-python.jpg', 40.00),
+('book-18', 'Clean Architecture', 'A craftsman’s guide to software structure.', 'https://example.com/images/clean-architecture.jpg', 45.00),
+('book-19', 'Domain-Driven Design', 'Tackling complexity in the heart of software.', 'https://example.com/images/domain-driven-design.jpg', 60.00),
+('book-20', 'Head First Java', 'A brain-friendly guide to Java.', 'https://example.com/images/head-first-java.jpg', 35.00),
+('book-21', 'The Art of Computer Programming', 'Comprehensive algorithms and mathematics.', 'https://example.com/images/art-of-computer-programming.jpg', 120.00),
+('book-22', 'Learning Python', 'Powerful object-oriented programming.', 'https://example.com/images/learning-python.jpg', 50.00),
+('book-23', 'Python Crash Course', 'A hands-on introduction to programming.', 'https://example.com/images/python-crash-course.jpg', 38.00),
+('book-24', 'Refactoring to Patterns', 'Refactoring techniques combined with design patterns.', 'https://example.com/images/refactoring-to-patterns.jpg', 47.00),
+('book-25', 'Test-Driven Development', 'By example, practical guide to TDD.', 'https://example.com/images/test-driven-development.jpg', 42.00);
