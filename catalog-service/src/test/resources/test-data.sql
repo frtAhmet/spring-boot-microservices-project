@@ -1,0 +1,28 @@
+truncate table products;
+
+insert into products(code, name, description, image_url, price) values
+('book-1', 'Effective Java', 'A comprehensive guide to programming in Java.', 'https://example.com/images/effective-java.jpg', 45.00),
+('book-2', 'Clean Code', 'A handbook of agile software craftsmanship.', 'https://example.com/images/clean-code.jpg', 40.00),
+('book-3', 'Design Patterns', 'Elements of reusable object-oriented software.', 'https://example.com/images/design-patterns.jpg', 50.00),
+('book-4', 'Refactoring', 'Improving the design of existing code.', 'https://example.com/images/refactoring.jpg', 35.00),
+('book-5', 'The Pragmatic Programmer', 'Your journey to mastery.', 'https://example.com/images/pragmatic-programmer.jpg', 55.00),
+('book-6', 'Java Concurrency in Practice', 'Thread-safe programming in Java.', 'https://example.com/images/java-concurrency.jpg', 60.00),
+('book-7', 'Head First Design Patterns', 'A brain-friendly guide to design patterns.', 'https://example.com/images/head-first-design-patterns.jpg', 42.00),
+('book-8', 'Effective Modern C++', '42 specific ways to improve your use of C++11 and C++14.', 'https://example.com/images/effective-modern-cpp.jpg', 48.00),
+('book-9', 'The Clean Coder', 'A code of conduct for professional programmers.', 'https://example.com/images/clean-coder.jpg', 38.00),
+('book-10', 'Code Complete', 'A practical handbook of software construction.', 'https://example.com/images/code-complete.jpg', 52.00),
+('book-11', 'Cracking the Coding Interview', '189 programming questions and solutions.', 'https://example.com/images/cracking-coding-interview.jpg', 38.00),
+('book-12', 'Introduction to Algorithms', 'Comprehensive textbook on algorithms.', 'https://example.com/images/intro-to-algorithms.jpg', 70.00),
+('book-13', 'You Don’t Know JS', 'Deep dive into JavaScript.', 'https://example.com/images/you-dont-know-js.jpg', 30.00),
+('book-14', 'JavaScript: The Good Parts', 'Unearthing the best features of JavaScript.', 'https://example.com/images/js-good-parts.jpg', 28.00),
+('book-15', 'The Mythical Man-Month', 'Essays on software engineering management.', 'https://example.com/images/mythical-man-month.jpg', 34.00),
+('book-16', 'Programming Pearls', 'Techniques for programming excellence.', 'https://example.com/images/programming-pearls.jpg', 33.00),
+('book-17', 'Effective Python', '59 specific ways to write better Python.', 'https://example.com/images/effective-python.jpg', 40.00),
+('book-18', 'Clean Architecture', 'A craftsman’s guide to software structure.', 'https://example.com/images/clean-architecture.jpg', 45.00),
+('book-19', 'Domain-Driven Design', 'Tackling complexity in the heart of software.', 'https://example.com/images/domain-driven-design.jpg', 60.00),
+('book-20', 'Head First Java', 'A brain-friendly guide to Java.', 'https://example.com/images/head-first-java.jpg', 35.00),
+('book-21', 'The Art of Computer Programming', 'Comprehensive algorithms and mathematics.', 'https://example.com/images/art-of-computer-programming.jpg', 120.00),
+('book-22', 'Learning Python', 'Powerful object-oriented programming.', 'https://example.com/images/learning-python.jpg', 50.00),
+('book-23', 'Python Crash Course', 'A hands-on introduction to programming.', 'https://example.com/images/python-crash-course.jpg', 38.00),
+('book-24', 'Refactoring to Patterns', 'Refactoring techniques combined with design patterns.', 'https://example.com/images/refactoring-to-patterns.jpg', 47.00),
+('book-25', 'Test-Driven Development', 'By example, practical guide to TDD.', 'https://example.com/images/test-driven-development.jpg', 42.00);
