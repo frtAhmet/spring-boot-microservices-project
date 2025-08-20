@@ -2,7 +2,7 @@ package com.frtahmet.bookstore.catalog.domain;
 
 import java.util.List;
 
-public record PagedResult<T> (
+public record PagedResult<T>(
         List<T> data,
         long totalElements,
         int totalPages,
@@ -11,5 +11,3 @@ public record PagedResult<T> (
         boolean isLast,
         boolean hasNext,
         boolean hasPrevious) {}
-
-

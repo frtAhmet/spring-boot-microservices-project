@@ -1,18 +1,16 @@
 package com.frtahmet.bookstore.catalog.web.controllers;
 
-import com.frtahmet.bookstore.catalog.AbstractIT;
-import com.frtahmet.bookstore.catalog.domain.ProductResponse;
-import io.restassured.http.ContentType;
-import org.junit.jupiter.api.Test;
-import org.springframework.test.context.jdbc.Sql;
-
-import java.math.BigDecimal;
-
 import static io.restassured.RestAssured.given;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import com.frtahmet.bookstore.catalog.AbstractIT;
+import com.frtahmet.bookstore.catalog.domain.ProductResponse;
+import io.restassured.http.ContentType;
+import java.math.BigDecimal;
+import org.junit.jupiter.api.Test;
+import org.springframework.test.context.jdbc.Sql;
 
 @Sql("/test-data.sql")
 class ProductControllerTest extends AbstractIT {
@@ -20,8 +18,7 @@ class ProductControllerTest extends AbstractIT {
     @Test
     void shouldReturnProducts() {
 
-        given()
-                .contentType(ContentType.JSON)
+        given().contentType(ContentType.JSON)
                 .when()
                 .get("/api/v1/products")
                 .then()
@@ -34,7 +31,6 @@ class ProductControllerTest extends AbstractIT {
                 .body("isLast", is(false))
                 .body("hasNext", is(true))
                 .body("hasPrevious", is(false));
-
     }
 
     @Test
@@ -42,8 +38,7 @@ class ProductControllerTest extends AbstractIT {
 
         String code = "book-1";
 
-        ProductResponse product = given()
-                .contentType(ContentType.JSON)
+        ProductResponse product = given().contentType(ContentType.JSON)
                 .when()
                 .get("/api/v1/products/{code}", code)
                 .then()
@@ -64,8 +59,7 @@ class ProductControllerTest extends AbstractIT {
 
         String code = "invalid_product_code";
 
-        given()
-                .contentType(ContentType.JSON)
+        given().contentType(ContentType.JSON)
                 .when()
                 .get("/api/v1/products/{code}", code)
                 .then()
@@ -74,5 +68,4 @@ class ProductControllerTest extends AbstractIT {
                 .body("title", is("Product Not Found"))
                 .body("detail", is("Product with code " + code + " not found."));
     }
-
 }
