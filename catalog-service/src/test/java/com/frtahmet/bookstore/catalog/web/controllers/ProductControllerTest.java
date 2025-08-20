@@ -1,13 +1,18 @@
 package com.frtahmet.bookstore.catalog.web.controllers;
 
 import com.frtahmet.bookstore.catalog.AbstractIT;
+import com.frtahmet.bookstore.catalog.domain.ProductResponse;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.jdbc.Sql;
 
+import java.math.BigDecimal;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Sql("/test-data.sql")
 class ProductControllerTest extends AbstractIT {
@@ -30,6 +35,44 @@ class ProductControllerTest extends AbstractIT {
                 .body("hasNext", is(true))
                 .body("hasPrevious", is(false));
 
+    }
+
+    @Test
+    void shouldGetProductByCode() {
+
+        String code = "book-1";
+
+        ProductResponse product = given()
+                .contentType(ContentType.JSON)
+                .when()
+                .get("/api/v1/products/{code}", code)
+                .then()
+                .statusCode(200)
+                .assertThat()
+                .extract()
+                .body()
+                .as(ProductResponse.class);
+
+        assertThat(product.code()).isEqualTo(code);
+        assertThat(product.name()).isEqualTo("Effective Java");
+        assertThat(product.description()).isEqualTo("A comprehensive guide to programming in Java.");
+        assertThat(product.price()).isEqualTo(new BigDecimal("45.00"));
+    }
+
+    @Test
+    void shouldReturnNotFoundWhenProductCodeNotExists() {
+
+        String code = "invalid_product_code";
+
+        given()
+                .contentType(ContentType.JSON)
+                .when()
+                .get("/api/v1/products/{code}", code)
+                .then()
+                .statusCode(404)
+                .body("status", is(404))
+                .body("title", is("Product Not Found"))
+                .body("detail", is("Product with code " + code + " not found."));
     }
 
 }

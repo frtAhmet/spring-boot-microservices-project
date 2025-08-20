@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.jdbc.Sql;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -30,4 +31,21 @@ class ProductRepositoryTest {
         List<ProductEntity> productResponses = productRepository.findAll();
         assertThat(productResponses).hasSize(25);
     }
+
+    @Test
+    void shouldGetProductByCode() {
+        String code = "book-1";
+        ProductEntity productEntity = productRepository.findByCode(code).orElseThrow();
+        assertThat(productEntity.getCode()).isEqualTo(code);
+        assertThat(productEntity.getName()).isEqualTo("Effective Java");
+        assertThat(productEntity.getDescription()).isEqualTo("A comprehensive guide to programming in Java.");
+        assertThat(productEntity.getPrice()).isEqualTo(new BigDecimal("45.00"));
+    }
+
+    @Test
+    void shouldReturnEmptyWhenProductCodeNotExists() {
+        String code = "invalid_product_code";
+        assertThat(productRepository.findByCode(code)).isEmpty();
+    }
+
 }
